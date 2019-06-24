@@ -1,15 +1,17 @@
 package com.exxeta;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.LongStream;
 
 @ApplicationScoped
 public class TrainingRepo {
+    @PersistenceContext
+    private EntityManager em;
+
    public List<Training> findAll() {
-      return LongStream.range(0,100)
-              .mapToObj(i -> Training.builder().name("Training" + i).id(i).build())
-              .collect(Collectors.toList());
+       return em.createNamedQuery("Training.findAll", Training.class)
+               .getResultList();
    }
 }
