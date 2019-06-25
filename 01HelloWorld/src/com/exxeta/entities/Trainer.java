@@ -1,4 +1,4 @@
-package com.exxeta;
+package com.exxeta.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,15 +12,18 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "TRAINING")
-@NamedQueries(value = {
-        @NamedQuery(name = "Training.findAll", query = "select t from Training t")
-})
-public class Training {
+@Table(name="TRAINER")
+public class Trainer {
     @Id
-    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
     private Long id;
-    @Column(name = "NAME")
+
+    @Column(name="NAME", length = 30)
     private String name;
+
+    @Column(name="SKILL_LEVEL")
+    @Enumerated(EnumType.STRING)
+    private SkillLevel skillLevel;
+
 }

@@ -1,4 +1,7 @@
-package com.exxeta;
+package com.exxeta.rest;
+
+import com.exxeta.entities.Training;
+import com.exxeta.repos.TrainingRepo;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -17,6 +20,6 @@ public class TrainingRestService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Training> findAllTrainings(){
-        return trainingRepo.findAll();
+        return trainingRepo.findAllFetchTeilnehmer();
     }
 }
