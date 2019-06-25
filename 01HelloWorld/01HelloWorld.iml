@@ -15,7 +15,7 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
-          <factory-entry name="TRAINING_PU" />
+          <factory-entry name="TRAINING_PU" value="ddda4229-fb48-4524-8715-ce4c64b8a8ed" />
         </datasource-mapping>
         <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/META-INF/persistence.xml" />
