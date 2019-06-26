@@ -19,6 +19,10 @@ import java.util.List;
         @NamedQuery(name = "Training.findAll", query = "select t from Training t"),
         @NamedQuery(name = "Training.findAllFetchTeilnehmer", query = "select t from Training t left outer join fetch t.teilnehmer")
 })
+@NamedEntityGraph(name = "Training.allAttributes", attributeNodes = {
+        @NamedAttributeNode("trainer"),
+        @NamedAttributeNode("teilnehmer")
+})
 public class Training {
     @Id
     @Column(name = "ID")
@@ -34,11 +38,11 @@ public class Training {
     @Column(name="ENDE")
     private LocalDate ende;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="ID_TRAINER")
     private Trainer trainer;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name="TRAINING_ZU_TEILNEHMER",
             joinColumns = @JoinColumn(name = "ID_TRAINING"),
             inverseJoinColumns = @JoinColumn(name = "ID_TEILNEHMER"))
