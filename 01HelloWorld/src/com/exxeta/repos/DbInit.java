@@ -1,6 +1,5 @@
 package com.exxeta.repos;
 
-import com.exxeta.entities.SkillLevel;
 import com.exxeta.entities.Teilnehmer;
 import com.exxeta.entities.Trainer;
 import com.exxeta.entities.Training;
@@ -8,19 +7,25 @@ import com.exxeta.entities.Training;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Initialized;
 import javax.enterprise.event.Observes;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.LongStream;
 
 @ApplicationScoped
 public class DbInit {
     @PersistenceContext
     private EntityManager em;
+
+    @Inject @TestData
+    private List<Training> trainings;
+
+    @Inject @TestData
+    private List<Teilnehmer> teilnehmer;
+
+    @Inject @TestData
+    private List<Trainer> trainer;
 
     @Transactional
     public void initDb(@Observes @Initialized(ApplicationScoped.class) Object event){
@@ -29,25 +34,6 @@ public class DbInit {
                 .getResultList();
 
         if (existingTrainings.isEmpty()) {
-            List<Training> trainings = LongStream.range(0, 100)
-                    .mapToObj(i -> Training.builder()
-                            .name("Training" + i)
-                            .build())
-                    .collect(Collectors.toList());
-
-            List<Teilnehmer> teilnehmer = LongStream.range(0, 10)
-                    .mapToObj(i -> Teilnehmer.builder().name("Teilnehmer" + i).geburtsdatum(new Date()).build())
-                    .collect(Collectors.toList());
-
-            Trainer trainerMichael = Trainer.builder()
-                    .name("Michael")
-                    .skillLevel(SkillLevel.A)
-                    .build();
-            Trainer trainerBernhard = Trainer.builder()
-                    .name("Bernhard")
-                    .skillLevel(SkillLevel.B)
-                    .build();
-            List<Trainer> trainer = Arrays.asList(trainerMichael, trainerBernhard);
 
             trainer.forEach(t -> em.persist(t));
             teilnehmer.forEach(t -> em.persist(t));

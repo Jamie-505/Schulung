@@ -2,4 +2,33 @@ GET http://localhost:8080/01HelloWorld_war_exploded/rest/trainings
 Accept: application/json
 
 ###
+GET http://localhost:8080/01HelloWorld_war_exploded/rest/trainings/101
+Accept: application/json
 
+###
+DELETE http://localhost:8080/01HelloWorld_war_exploded/rest/trainings/101
+Accept: application/json
+
+###
+POST http://localhost:8080/01HelloWorld_war_exploded/rest/trainings
+Accept: application/json
+Content-Type: application/json
+
+{
+"name":"Java EE Training",
+"beginn": "2019-06-02",
+"ende": "2019-06-01",
+"trainer": {
+"name": "Michael"
+}
+}
+
+###
+GET http://localhost:8080/01HelloWorld_war_exploded/rest/teilnehmer
+Accept: application/json
+
+###
+GET http://localhost:8080/01HelloWorld_war_exploded/rest/teilnehmer/101
+Accept: application/json
+
+###

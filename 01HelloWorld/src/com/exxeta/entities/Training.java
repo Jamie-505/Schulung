@@ -1,11 +1,14 @@
 package com.exxeta.entities;
 
+import com.exxeta.validation.ValidDuration;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -23,6 +26,8 @@ import java.util.List;
         @NamedAttributeNode("trainer"),
         @NamedAttributeNode("teilnehmer")
 })
+
+@ValidDuration
 public class Training {
     @Id
     @Column(name = "ID")
@@ -30,12 +35,16 @@ public class Training {
     private Long id;
 
     @Column(name = "NAME")
+    @NotNull
+    @Size(min = 3, max = 20)
     private String name;
 
     @Column(name="BEGINN")
+    @NotNull
     private LocalDate beginn;
 
     @Column(name="ENDE")
+    @NotNull
     private LocalDate ende;
 
     @ManyToOne(cascade = CascadeType.MERGE)

@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ejb.exxeta.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="TeilnehmerSoapServiceService" targetNamespace="http://ejb.exxeta.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ejb.exxeta.com/" elementFormDefault="unqualified" targetNamespace="http://ejb.exxeta.com/" version="1.0">
+
+  <xs:element name="findAllTeilnehmer" type="tns:findAllTeilnehmer"/>
+
+  <xs:element name="findAllTeilnehmerResponse" type="tns:findAllTeilnehmerResponse"/>
+
+  <xs:element name="findTeilnehmerById" type="tns:findTeilnehmerById"/>
+
+  <xs:element name="findTeilnehmerByIdResponse" type="tns:findTeilnehmerByIdResponse"/>
+
+  <xs:complexType name="findAllTeilnehmer">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="findAllTeilnehmerResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:teilnehmer"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="teilnehmer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="geburtsdatum" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="id" type="xs:long"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findTeilnehmerById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findTeilnehmerByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:teilnehmer"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="findAllTeilnehmer">
+    <wsdl:part element="tns:findAllTeilnehmer" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllTeilnehmerResponse">
+    <wsdl:part element="tns:findAllTeilnehmerResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findTeilnehmerByIdResponse">
+    <wsdl:part element="tns:findTeilnehmerByIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findTeilnehmerById">
+    <wsdl:part element="tns:findTeilnehmerById" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TeilnehmerSoapService">
+    <wsdl:operation name="findAllTeilnehmer">
+      <wsdl:input message="tns:findAllTeilnehmer" name="findAllTeilnehmer">
+    </wsdl:input>
+      <wsdl:output message="tns:findAllTeilnehmerResponse" name="findAllTeilnehmerResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findTeilnehmerById">
+      <wsdl:input message="tns:findTeilnehmerById" name="findTeilnehmerById">
+    </wsdl:input>
+      <wsdl:output message="tns:findTeilnehmerByIdResponse" name="findTeilnehmerByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TeilnehmerSoapServiceServiceSoapBinding" type="tns:TeilnehmerSoapService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="findAllTeilnehmer">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllTeilnehmer">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllTeilnehmerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findTeilnehmerById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findTeilnehmerById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findTeilnehmerByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TeilnehmerSoapServiceService">
+    <wsdl:port binding="tns:TeilnehmerSoapServiceServiceSoapBinding" name="TeilnehmerSoapServicePort">
+      <soap:address location="http://localhost:8080/01HelloWorld_war_exploded/TeilnehmerSoapService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
