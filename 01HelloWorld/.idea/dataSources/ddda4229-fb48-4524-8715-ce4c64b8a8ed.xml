@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Apache Derby (Remote) - training@localhost">
+  <database-model serializer="dbm" dbms="DERBY" family-id="DERBY" format-version="4.15">
+    <root id="1">
+      <ServerVersion>10.14.2.0</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="ADMIN">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="APP"/>
+    <schema id="4" parent="1" name="NULLID"/>
+    <schema id="5" parent="1" name="SQLJ"/>
+    <schema id="6" parent="1" name="SYS"/>
+    <schema id="7" parent="1" name="SYSCAT"/>
+    <schema id="8" parent="1" name="SYSCS_DIAG"/>
+    <schema id="9" parent="1" name="SYSCS_UTIL"/>
+    <schema id="10" parent="1" name="SYSFUN"/>
+    <schema id="11" parent="1" name="SYSIBM"/>
+    <schema id="12" parent="1" name="SYSPROC"/>
+    <schema id="13" parent="1" name="SYSSTAT"/>
+    <table id="14" parent="2" name="TEILNEHMER"/>
+    <table id="15" parent="2" name="TRAINER"/>
+    <table id="16" parent="2" name="TRAINING"/>
+    <table id="17" parent="2" name="TRAINING_ZU_TEILNEHMER"/>
+    <column id="18" parent="14" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>GENERATED_BY_DEFAULT</DefaultExpression>
+    </column>
+    <column id="19" parent="14" name="GEBURTSDATUM">
+      <Position>2</Position>
+      <DataType>DATE|91s</DataType>
+    </column>
+    <column id="20" parent="14" name="NAME">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <index id="21" parent="14" name="SQL190625113452040">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="22" parent="14" name="SQL190625113452040">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="23" parent="15" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>GENERATED_BY_DEFAULT</DefaultExpression>
+    </column>
+    <column id="24" parent="15" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(30)|12s</DataType>
+    </column>
+    <column id="25" parent="15" name="SKILL_LEVEL">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <index id="26" parent="15" name="SQL190625113452060">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="27" parent="15" name="SQL190625113452060">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="28" parent="16" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>GENERATED_BY_DEFAULT</DefaultExpression>
+    </column>
+    <column id="29" parent="16" name="BEGINN">
+      <Position>2</Position>
+      <DataType>DATE|91s</DataType>
+    </column>
+    <column id="30" parent="16" name="ENDE">
+      <Position>3</Position>
+      <DataType>DATE|91s</DataType>
+    </column>
+    <column id="31" parent="16" name="NAME">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="32" parent="16" name="ID_TRAINER">
+      <Position>5</Position>
+      <DataType>BIGINT|-5s</DataType>
+    </column>
+    <index id="33" parent="16" name="SQL190625113452070">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="34" parent="16" name="SQL190626115204030">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID_TRAINER</ColNames>
+    </index>
+    <key id="35" parent="16" name="SQL190625113452070">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="36" parent="16" name="FKTG3M7ETTYG23GN30V5YA14CNU">
+      <ColNames>ID_TRAINER</ColNames>
+      <RefTableName>TRAINER</RefTableName>
+      <RefKeyName>SQL190625113452060</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="37" parent="17" name="ID_TRAINING">
+      <Position>1</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="17" name="ID_TEILNEHMER">
+      <Position>2</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="39" parent="17" name="SQL190626115204040">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID_TRAINING</ColNames>
+    </index>
+    <index id="40" parent="17" name="SQL190626115204031">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID_TEILNEHMER</ColNames>
+    </index>
+    <foreign-key id="41" parent="17" name="FKT5NKH58MV34M2H5RPIY2X1XYD">
+      <ColNames>ID_TRAINING</ColNames>
+      <RefTableName>TRAINING</RefTableName>
+      <RefKeyName>SQL190625113452070</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="42" parent="17" name="FKJ5DHEKT41CCU1NRQIIHJJKHIS">
+      <ColNames>ID_TEILNEHMER</ColNames>
+      <RefTableName>TEILNEHMER</RefTableName>
+      <RefKeyName>SQL190625113452040</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

@@ -1,0 +1,15 @@
+{
+  "exception": null,
+  "fieldViolations": [],
+  "propertyViolations": [],
+  "classViolations": [],
+  "parameterViolations": [
+    {
+      "constraintType": "PARAMETER",
+      "path": "save.arg0",
+      "message": "Invalid duration",
+      "value": "Training(id=null, name=Java EE Training, beginn=2019-06-02, ende=2019-06-01, trainer=Trainer(id=null, name=Michael, skillLevel=null), teilnehmer=null)"
+    }
+  ],
+  "returnValueViolations": []
+}

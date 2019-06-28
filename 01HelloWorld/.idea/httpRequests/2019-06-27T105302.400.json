@@ -1,0 +1,33 @@
+{
+  "exception": null,
+  "fieldViolations": [],
+  "propertyViolations": [],
+  "classViolations": [],
+  "parameterViolations": [
+    {
+      "constraintType": "PARAMETER",
+      "path": "save.arg0.ende",
+      "message": "must not be null",
+      "value": ""
+    },
+    {
+      "constraintType": "PARAMETER",
+      "path": "save.arg0.beginn",
+      "message": "must not be null",
+      "value": ""
+    },
+    {
+      "constraintType": "PARAMETER",
+      "path": "save.arg0.name",
+      "message": "size must be between 3 and 20",
+      "value": "Java EE Training für Anfänger usw und sofort"
+    },
+    {
+      "constraintType": "PARAMETER",
+      "path": "save.arg0",
+      "message": "Invalid duration",
+      "value": "Training(id=null, name=Java EE Training für Anfänger usw und sofort, beginn=null, ende=null, trainer=Trainer(id=null, name=Michael, skillLevel=null), teilnehmer=null)"
+    }
+  ],
+  "returnValueViolations": []
+}

@@ -1,0 +1,9 @@
+{
+  "beginn": "2019-06-01",
+  "ende": "2019-06-02",
+  "id": 101,
+  "name": "Java EE Training",
+  "trainer": {
+    "name": "Michael"
+  }
+}

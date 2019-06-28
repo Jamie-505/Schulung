@@ -25,7 +25,7 @@ public class HeartBeat {
     @Inject
     private MyWebSocket myWebSocket;
 
-    @Schedule(second = "*/1", minute = "*", hour = "*", persistent = false)
+   @Schedule(second = “*/1”, minute = “*”, hour =“*”, persistent = true)
     public void beat() {
         if (isLogHeartbeat) {
             myWebSocket.incrementCounter();
