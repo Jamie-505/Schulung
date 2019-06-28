@@ -3,6 +3,7 @@ package com.exxeta.rest;
 import com.exxeta.ejb.TeilnehmerRepo;
 import com.exxeta.entities.Teilnehmer;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.GET;
@@ -17,6 +18,7 @@ public class TeilnehmerRestService {
     private TeilnehmerRepo teilnehmerRepo;
 
     @GET
+    @RolesAllowed("super")
     public List<Teilnehmer> findAll() {
         return teilnehmerRepo.findAll();
     }
