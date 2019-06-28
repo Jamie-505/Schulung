@@ -6,7 +6,7 @@
                       http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
     bean-discovery-mode="all">
 	<alternatives>
-		<class>com.exxeta.repos.TrainingMemRepo</class>
+		<class>com.exxeta.repos.TrainingJpaRepo</class>
 	</alternatives>
 	<interceptors>
 		<class>com.exxeta.interceptors.PerformanceInterceptor</class>

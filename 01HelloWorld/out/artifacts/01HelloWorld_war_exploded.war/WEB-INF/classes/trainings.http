@@ -1,5 +1,6 @@
 GET http://localhost:8080/01HelloWorld_war_exploded/rest/trainings
 Accept: application/json
+Authorization: Basic dXNlcjp1c2Vy
 
 ###
 GET http://localhost:8080/01HelloWorld_war_exploded/rest/trainings/101

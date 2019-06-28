@@ -11,9 +11,7 @@ import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
+import javax.ws.rs.core.*;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
@@ -33,7 +31,11 @@ public class TrainingRestService {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Training> findAllTrainings(){
+    public List<Training> findAllTrainings(@Context SecurityContext ctx){
+        String userName = ctx.getUserPrincipal().getName();
+        log.info("User name: " + userName);
+        log.info("isAdmin? " + ctx.isUserInRole("super"));
+        log.info("isUser? " + ctx.isUserInRole("user"));
         return trainingRepo.findAll();
     }
 
